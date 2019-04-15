@@ -1,0 +1,10 @@
+/* for the main button of the ComboBox  */
+.combo-box .cell {
+    -fx-text-fill: #fff;
+    -fx-font: 14px "Roboto Condensed";
+    -fx-background-color: #1F2F2E;
+}
+
+#vbox {
+    -fx-background-image: url("weather-bg.jpg");
+}

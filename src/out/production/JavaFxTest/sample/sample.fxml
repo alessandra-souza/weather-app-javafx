@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="TOP_CENTER" hgap="10" vgap="0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <VBox id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <ComboBox fx:id="citiesCombo" prefWidth="210.0" prefHeight="30" promptText="Please select a city below:">
+                <VBox.margin>
+                    <Insets top="5" />
+                </VBox.margin>
+            </ComboBox>
+            <Label fx:id="selectedCity" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Bold" size="42.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="8.0" />
+                </VBox.margin>
+            </Label>
+            <ImageView fx:id="icon" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+<!--                <image>-->
+<!--                    <Image url="http://www.openweathermap.org/img/w/02d.png" />-->
+<!--                </image>-->
+            </ImageView>
+            <Label fx:id="cityTempDesc" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Bold" size="16.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="8.0" />
+                </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                <children>
+                    <Label fx:id="cityTemp" alignment="CENTER" contentDisplay="RIGHT" textAlignment="CENTER" textFill="#fefefe">
+                        <font>
+                            <Font name="Roboto Condensed Bold" size="94.0" />
+                        </font>
+                    </Label>
+                    <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                        <children>
+                            <Label alignment="CENTER" fx:id="cityMinTemp" textFill="#fefefe">
+                                <font>
+                                   <Font name="Roboto Condensed Regular" size="13.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="CENTER" contentDisplay="CENTER" fx:id="cityMaxTemp" textFill="#fefefe">
+                                <font>
+                                   <Font name="Roboto Condensed Regular" size="13.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+            <Label fx:id="lblSkiiable" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Regular" size="14.0" />
+                </font>
+            </Label>
+            <Label fx:id="lblSailable" layoutX="160.0" layoutY="409.0" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Regular" size="14.0" />
+                </font>
+            </Label>
+            <Label fx:id="lblBikable" layoutX="160.0" layoutY="432.0" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Regular" size="14.0" />
+                </font>
+            </Label>
+            <Label fx:id="lblFlyable" layoutX="160.0" layoutY="455.0" textFill="#fefefe">
+                <font>
+                    <Font name="Roboto Condensed Regular" size="14.0" />
+                </font>
+            </Label>
+        </children>
+    </VBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+
+
+</GridPane>
