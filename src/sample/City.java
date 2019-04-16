@@ -79,9 +79,9 @@ public class City extends Location implements Sailable, Skiiable, Bikable, Flyab
         if (Integer.valueOf(weather.getVisibility()) != null && Double.valueOf(weather.getWindSpeed()) != null) {
             if ( Integer.valueOf(weather.getVisibility()) > 5000 && Double.valueOf(weather.getWindSpeed()) < 30 ) {
                 this.isFlyable = true;
-                return "bikable";
+                return "flyable";
             } else {
-                return "not bikable";
+                return "not flyable";
             }
         } else {
             return "no information about biking";
