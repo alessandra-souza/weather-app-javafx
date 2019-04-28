@@ -20,6 +20,7 @@ public class Weather {
     private int visibility;
     private String icon;
     private String description;
+    private String country;
 
     // getters and setters
     public double getTemp() {
@@ -126,6 +127,14 @@ public class Weather {
         this.description = description;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     // Methods
     public static Weather currWeather(String selCity){
 
@@ -149,6 +158,8 @@ public class Weather {
                 List<String> description = new ArrayList<>();
                 description.add(results.getJsonObject(0).getString("description"));
 
+                JsonString country = (JsonString) obj.getJsonObject("sys").get("country");
+
                 // fields
                 JsonNumber 	temp = (JsonNumber) obj.getJsonObject("main").get("temp"),
                         tempMin = (JsonNumber) obj.getJsonObject("main").get("temp_min"),
@@ -157,8 +168,9 @@ public class Weather {
                         humidity = (JsonNumber) obj.getJsonObject("main").get("humidity"),
                         windSpeed = (JsonNumber) obj.getJsonObject("wind").get("speed"),
                         windDeg = (JsonNumber) obj.getJsonObject("wind").get("deg"),
-                        //windGust = (JsonNumber) obj.getJsonObject("wind").get("gust"),
+//                        windGust = (JsonNumber) obj.getJsonObject("wind").get("gust"),
                         lat = (JsonNumber) obj.getJsonObject("coord").get("lat");
+//                        country = (JsonNumber) obj.getJsonObject("sys").get("country");
                 //visibility = (JsonNumber) obj.getString("visibility");
 
 
@@ -171,9 +183,10 @@ public class Weather {
                 myWeather.lat = lat.doubleValue();
                 myWeather.windSpeed = windSpeed.doubleValue();
                 myWeather.windDeg = windDeg.intValue();
-                //myWeather.windGust = windGust.intValue();
+//                myWeather.windGust = windGust.doubleValue();
                 myWeather.icon = icon.toString();
                 myWeather.description = description.toString();
+                myWeather.country = country.toString();
 
                 System.out.println("Temperature: " + myWeather.getTemp() +
                         "\nMin temp: " + myWeather.getTempMin() +
@@ -185,6 +198,7 @@ public class Weather {
                         "\nWind direction: " + myWeather.getWindDeg() +
                         "\nIcon: " + myWeather.getIcon() +
                         "\nDescription: " + myWeather.getDescription() +
+                        "\nCountry: " + myWeather.getCountry() +
                         "\nWind gust: " + myWeather.getWindGust());
             }
 

@@ -10,22 +10,42 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
 
 <GridPane alignment="TOP_CENTER" hgap="10" vgap="0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
     <VBox id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <ComboBox fx:id="citiesCombo" prefWidth="210.0" prefHeight="30" promptText="Please select a city below:">
+            <ComboBox fx:id="countriesCombo" prefWidth="210.0" prefHeight="30" promptText="Please select a country:">
                 <VBox.margin>
                     <Insets top="5" />
                 </VBox.margin>
             </ComboBox>
+            <ComboBox fx:id="provincesCombo" prefWidth="210.0" prefHeight="30" promptText="Please select a province:">
+                <VBox.margin>
+                    <Insets top="5" />
+                </VBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="citiesCombo" prefWidth="210.0" prefHeight="30" promptText="Please select a city:">
+                <VBox.margin>
+                    <Insets top="5" />
+                </VBox.margin>
+            </ComboBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="8.0" styleClass="margin-top: 15px;">
+                <children>
+<!--                    <Button fx:id="btnSend" text="Send"></Button>-->
+                    <Button fx:id="btnClear" text="Reset"></Button>
+                </children>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </HBox>
             <Label fx:id="selectedCity" textFill="#fefefe">
                 <font>
                     <Font name="Roboto Condensed Bold" size="42.0" />
                 </font>
                 <VBox.margin>
-                    <Insets top="8.0" />
+                    <Insets top="5.0" />
                 </VBox.margin>
             </Label>
             <ImageView fx:id="icon" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
@@ -41,17 +61,17 @@
                     <Font name="Roboto Condensed Bold" size="16.0" />
                 </font>
                 <VBox.margin>
-                    <Insets top="8.0" />
+                    <Insets top="5.0" />
                 </VBox.margin>
             </Label>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="120.0" prefWidth="100.0">
                 <children>
                     <Label fx:id="cityTemp" alignment="CENTER" contentDisplay="RIGHT" textAlignment="CENTER" textFill="#fefefe">
                         <font>
                             <Font name="Roboto Condensed Bold" size="94.0" />
                         </font>
                     </Label>
-                    <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0">
                         <children>
                             <Label alignment="CENTER" fx:id="cityMinTemp" textFill="#fefefe">
                                 <font>

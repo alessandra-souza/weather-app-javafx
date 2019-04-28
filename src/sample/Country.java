@@ -13,6 +13,13 @@ public class Country extends Location {
     // Constructors
     public Country(){}
 
+    public Country(String name){
+        super(0,0,name,0);
+        this.provinces = new ArrayList<Province>();
+        this.capital = null;
+        this.iso2 = null;
+    }
+
     public Country(ArrayList<Province> provinces, City capital, String iso2) {
         super();
         this.provinces = provinces;

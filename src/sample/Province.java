@@ -11,6 +11,12 @@ public class Province extends Location {
     // Constructors
     public Province(){}
 
+    public Province(String name){
+        super(0,0,name,0);
+        this.capital = null;
+        this.cities = new ArrayList<City>();
+    }
+
     public Province(City capital, ArrayList<City> cities) {
         super();
         this.capital = capital;

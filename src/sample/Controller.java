@@ -9,8 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import static sample.Weather.currWeather;
+import javax.json.*;
+import javax.json.stream.JsonParser;
+import java.io.*;
+import java.lang.Exception;
 
 public class Controller implements Initializable {
 
@@ -37,6 +42,10 @@ public class Controller implements Initializable {
     public Label lblFlyable;
     @FXML
     private ComboBox<String> citiesCombo; // Value injected by FXMLLoader
+    @FXML
+    private ComboBox<String> countriesCombo;
+    @FXML
+    private ComboBox<String> provincesCombo;
     @FXML
     public Label selectedCity;
 
@@ -66,7 +75,45 @@ public class Controller implements Initializable {
     @Override // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         // populate combo box
-        citiesCombo.getItems().setAll("Montreal", "Toronto", "Vancouver", "Halifax", "Ottawa");
+//        citiesCombo.getItems().setAll("Dubai", "Tokyo", "Montreal", "Toronto", "Vancouver", "Halifax", "Ottawa");
+
+        Country usa = new Country("USA");
+
+        countriesCombo.getItems().setAll("USA");
+
+
+        try {
+
+            FileInputStream is = new FileInputStream("src/sample/cities_usa.json");
+            JsonReader reader = Json.createReader(is);
+
+            JsonArray objectArray = reader.readArray();
+
+            List<String> cities = new ArrayList<String>();
+            List<String> provinces = new ArrayList<String>();
+
+            for(int i = 0; i < objectArray.size(); i++) {
+                cities.add(objectArray.getJsonObject(i).getString("city"));
+                provinces.add(objectArray.getJsonObject(i).getString("state"));
+
+                Set<String> set = new HashSet<>(provinces);
+                provinces.clear();
+                provinces.addAll(set);
+                Set<String> set2 = new HashSet<>(cities);
+                cities.clear();
+                cities.addAll(set2);
+                Collections.sort(provinces);
+                Collections.sort(cities);
+            }
+
+            citiesCombo.getItems().setAll(cities);
+            provincesCombo.getItems().setAll(provinces);
+
+        } catch (Exception e) {
+            System.out.println("Exception: "+e.getMessage());
+        }
+
+
 
         // bind the selected city label to the selected city in the combo box.
         selectedCity.textProperty().bind(citiesCombo.getSelectionModel().selectedItemProperty());
